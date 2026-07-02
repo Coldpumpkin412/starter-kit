@@ -14,8 +14,11 @@ export function Footer() {
           <Link href="/" className="text-muted-foreground transition-colors hover:text-foreground">
             홈
           </Link>
-          <Link href="/dashboard" className="text-muted-foreground transition-colors hover:text-foreground">
-            대시보드
+          <Link href="/examples" className="text-muted-foreground transition-colors hover:text-foreground">
+            예제
+          </Link>
+          <Link href="/docs" className="text-muted-foreground transition-colors hover:text-foreground">
+            문서
           </Link>
           <Link href="/login" className="text-muted-foreground transition-colors hover:text-foreground">
             로그인

@@ -11,10 +11,10 @@ export function CtaSection() {
         </p>
         <div className="flex gap-4">
           <Button asChild size="lg">
-            <Link href="/login">시작하기</Link>
+            <Link href="/examples">예제 보기</Link>
           </Button>
           <Button variant="outline" size="lg" asChild>
-            <Link href="/dashboard">데모 보기</Link>
+            <Link href="/docs">문서</Link>
           </Button>
         </div>
       </div>

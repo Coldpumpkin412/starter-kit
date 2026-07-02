@@ -17,12 +17,12 @@ export function HeroSection() {
       </p>
       <div className="flex gap-4">
         <Button asChild size="lg">
-          <Link href="/dashboard">
-            대시보드 보기 <ArrowRight className="ml-2 h-4 w-4" />
+          <Link href="/examples">
+            예제 보기 <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
         <Button variant="outline" size="lg" asChild>
-          <Link href="/login">시작하기</Link>
+          <Link href="/docs">문서</Link>
         </Button>
       </div>
     </section>
