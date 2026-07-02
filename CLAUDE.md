@@ -20,9 +20,15 @@ npm run build
 # 빌드된 앱 실행
 npm start
 
-# ESLint 실행
+# ESLint 실행 및 검사
 npm run lint
+
+# Playwright 테스트 (설정 필요)
+# npx playwright test
+# npx playwright test --ui (UI 모드)
 ```
+
+**주의**: Playwright는 `package.json`에 설치되어 있지만 `playwright.config.ts`가 아직 설정되지 않았습니다.
 
 ## 프로젝트 구조
 
@@ -30,15 +36,24 @@ npm run lint
 src/
   app/              # Next.js App Router
     layout.tsx      # Root layout (테마, 헤더/푸터 포함)
-    page.tsx        # 홈페이지
-    dashboard/      # 대시보드 페이지
-    login/          # 로그인 페이지
+    page.tsx        # 홈페이지 (랜딩 페이지)
     globals.css     # 전역 스타일 (Tailwind + 테마 변수)
+    login/          # 로그인 페이지
+    docs/           # 문서 페이지
+    examples/       # 예제 페이지 (컴포넌트, 폼, 레이아웃 등)
+      layout.tsx
+      page.tsx
+      forms/        # 폼 컴포넌트 예제
+      menus/        # 메뉴 컴포넌트 예제
+      hooks/        # 커스텀 훅 예제
+      theme/        # 테마 적용 예제
+      components/   # 일반 컴포넌트 예제
 
   components/
-    ui/             # shadcn/ui 컴포넌트들 (Button, Card, etc.)
+    ui/             # shadcn/ui 컴포넌트들 (Button, Card, Badge, etc.)
     layout/         # 레이아웃 컴포넌트 (Header, Footer)
     landing/        # 랜딩 페이지 섹션 (Hero, Features, CTA)
+    examples/       # 예제용 컴포넌트 (ExampleShowcase 등)
     theme-provider.tsx   # next-themes 래퍼
     theme-toggle.tsx     # 테마 토글 버튼
 
@@ -101,9 +116,16 @@ npx shadcn-ui@latest add <component-name>
 Next.js App Router 사용:
 
 ```
-/                    → src/app/page.tsx (홈페이지)
-/dashboard           → src/app/dashboard/page.tsx
-/login               → src/app/login/page.tsx
+/                    → src/app/page.tsx (홈페이지, 랜딩 페이지)
+/examples            → src/app/examples/page.tsx (컴포넌트 예제 목록)
+/examples/forms      → src/app/examples/forms/page.tsx (폼 예제)
+/examples/layout     → src/app/examples/layout/page.tsx (레이아웃 예제)
+/examples/menus      → src/app/examples/menus/page.tsx (메뉴 예제)
+/examples/hooks      → src/app/examples/hooks/page.tsx (훅 예제)
+/examples/theme      → src/app/examples/theme/page.tsx (테마 예제)
+/examples/components → src/app/examples/components/page.tsx (컴포넌트 예제)
+/docs                → src/app/docs/page.tsx (문서)
+/login               → src/app/login/page.tsx (로그인 페이지)
 ```
 
 새 페이지 추가: `src/app/[page-name]/page.tsx` 생성
@@ -158,3 +180,25 @@ export const metadata: Metadata = {
 - **Icon Library**: lucide-react 사용 (shadcn/ui의 기본 아이콘)
 - **Language**: HTML lang 속성이 `ko` (한국어)
 - **Globals**: `src/app/globals.css`에서 Tailwind + 테마 변수 정의
+- **components.json**: shadcn/ui 설정 파일 (컴포넌트 추가 시 기준)
+
+## ESLint
+
+Next.js 기본 ESLint 설정 사용:
+
+```bash
+# ESLint 실행
+npm run lint
+
+# 현재는 기본 설정만 적용되어 있으므로 필요시 커스텀 규칙 추가 가능
+```
+
+ESLint 설정은 Next.js에서 제공하는 기본값을 사용합니다. 추가 규칙이 필요하면 프로젝트 루트에 `.eslintrc.json` 또는 `eslint.config.js` 파일을 생성하여 커스터마이징할 수 있습니다.
+
+## React 버전
+
+- **React**: 19.2.4 (최신 버전 사용)
+- **React DOM**: 19.2.4
+- **Next.js**: 16.2.7
+
+Next.js v16은 React 19를 기본으로 사용하며, 새로운 기능들(Server Components, Actions, 등)이 안정화되었습니다.
