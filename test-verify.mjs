@@ -1,12 +1,13 @@
 import http from 'http';
+import https from 'https';
 
 const baseUrl = 'http://localhost:3000';
-const routes = ['/', '/dashboard', '/login'];
+const routes = ['/', '/login'];
 
 async function fetchPage(path) {
   return new Promise((resolve, reject) => {
     const url = new URL(path, baseUrl);
-    const protocol = url.protocol === 'https:' ? require('https') : http;
+    const protocol = url.protocol === 'https:' ? https : http;
 
     const options = {
       hostname: 'localhost',
@@ -63,22 +64,11 @@ async function main() {
       path: '/',
       name: '랜딩 페이지',
       elements: [
-        'Next.js v15 + TailwindCSS v4',
+        'Next.js v16 + TailwindCSS v4',
         '빠르게 시작하는',
         '웹 개발 스타터킷',
         '주요 기능',
         '지금 시작해보세요'
-      ]
-    },
-    {
-      path: '/dashboard',
-      name: '대시보드',
-      elements: [
-        '대시보드',
-        '총 사용자',
-        '월 매출',
-        '활성 세션',
-        '성장률'
       ]
     },
     {
@@ -88,8 +78,7 @@ async function main() {
         '로그인',
         '이메일과 비밀번호로 로그인하세요',
         '이메일로 로그인',
-        'GitHub으로 로그인',
-        '회원가입'
+        'GitHub으로 로그인'
       ]
     }
   ];
