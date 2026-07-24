@@ -4,7 +4,7 @@ import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/ca
 const features = [
   {
     icon: Zap,
-    title: "Next.js 15 App Router",
+    title: "Next.js 16 App Router",
     description: "React Server Components, Streaming, Server Actions를 활용한 최신 아키텍처"
   },
   {
