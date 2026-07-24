@@ -4,12 +4,13 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
+import { siteConfig } from "@/lib/site-config"
 
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Next.js Starter Kit",
-  description: "Next.js v15 + TypeScript + TailwindCSS v4 + shadcn/ui",
+  description: siteConfig.description,
 }
 
 export default function RootLayout({
