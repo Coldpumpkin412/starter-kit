@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 
 type DocSection = "getting-started" | "ui-components" | "hooks" | "configuration"
@@ -467,7 +467,7 @@ export default function DocsPage() {
                 <button
                   key={key}
                   onClick={() => setActiveSection(key as DocSection)}
-                  className={`block w-full text-left px-3 py-2 rounded-md text-sm transition-colors ${
+                  className={`block w-full text-left px-3 py-2 rounded-md text-sm transition-colors truncate ${
                     activeSection === key
                       ? "bg-primary text-primary-foreground font-semibold"
                       : "text-muted-foreground hover:text-foreground hover:bg-accent"
@@ -488,7 +488,7 @@ export default function DocsPage() {
                 {docSections[activeSection].title}
               </CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="overflow-x-auto">
               {docSections[activeSection].content}
             </CardContent>
           </Card>
