@@ -118,7 +118,7 @@ export function CurrentTheme() {
               </CardHeader>
               <CardContent>
                 <div className="h-20 w-full rounded-md border border-border" style={{
-                  backgroundColor: `hsl(var(${color.var}))`
+                  backgroundColor: `var(${color.var})`
                 }} />
               </CardContent>
             </Card>
